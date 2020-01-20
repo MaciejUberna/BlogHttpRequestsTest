@@ -3,7 +3,7 @@
 
 # Starter Web Project
 
-Folder containing the project is: BlogHttpRequestsTest
+Folder containing the project is: blog-http-requests-test
 
 ## Introduction
 

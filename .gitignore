@@ -1,5 +1,5 @@
 # Don't track content of these folders
-/BlogHttpRequestsTest/node_modules/
+/blog-http-requests-test/node_modules/
 
 
 # Compiled source #
