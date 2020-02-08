@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 //import axios from 'axios';
 import Posts from './Posts/Posts';
 import NewPost from './NewPost/NewPost';
+import FullPost from './FullPost/FullPost';
 
 import './Blog.css';
 
@@ -41,7 +42,7 @@ class Blog extends Component {
                     <Route path="/new-post" component={NewPost} />
                     {/* This below must be last so it does not interfear with /new-post url. */}
                     {/* The id can be anything */}
-                    <Route path="/:id" exact component={Posts} />
+                    <Route path="/:id" exact component={FullPost} />
                 </div>
             );
         }
