@@ -21,8 +21,8 @@ class Posts extends Component {
                     };
                 });
                 this.setState({posts: updatedPosts});
-                console.log('Response: ',response);
-                console.log('UpdatedPosts: ',updatedPosts);
+                //console.log('Response: ',response);
+                //console.log('UpdatedPosts: ',updatedPosts);
             })
                 .catch(error => {
                     console.log('Post error: ',error);
@@ -38,7 +38,7 @@ class Posts extends Component {
         let posts = <p style={{textAlign: 'center'}}>Something went wrong!</p>
         if(!this.state.error) {
             posts = this.state.posts.map(post => {
-                console.log('post: ',post);
+                //console.log('post: ',post);
                 return <Post 
                 key={post.id} 
                 title={post.title} 
