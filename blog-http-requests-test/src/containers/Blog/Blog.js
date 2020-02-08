@@ -5,7 +5,7 @@ import NewPost from './NewPost/NewPost';
 
 import './Blog.css';
 
-import { Route, Link, withRouter } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 class Blog extends Component {
 
@@ -19,7 +19,7 @@ class Blog extends Component {
                                 {console.log('Props of Blog.js: ', this.props)}
                                 <li><Link to="/">Home</Link></li>
                                 <li><Link to={{
-                                    pathname: this.props.match.url + '/new-post',
+                                    pathname: '/new-post',
                                     hash: '#submit',
                                     search: '?quick-submit=true'
                                 }}>New Post</Link></li>
@@ -35,4 +35,4 @@ class Blog extends Component {
         }
 }
 
-export default withRouter(Blog);
+export default Blog;
