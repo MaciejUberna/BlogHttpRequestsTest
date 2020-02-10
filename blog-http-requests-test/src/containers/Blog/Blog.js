@@ -46,8 +46,10 @@ class Blog extends Component {
                         {/* This is a guard with redirect at the bottom and auth in state! */}
                         {this.state.auth ? <Route path="/new-post" component={NewPost} /> : null}
                         <Route path="/posts" component={Posts} />
+                        {/* Catch all route below: */}
+                        <Route render={() => <h1>Not found</h1>}/>
                         {/* <Route path="/" component={Poasts} /> */}
-                        <Redirect from="/" to="/posts" />
+                        {/* <Redirect from="/" to="/posts" /> */}
                         {/* This below must be last so it does not interfear with /new-post url.*/}
                         {/* The id can be anything */}
                         {/* <Route path="/:id" exact component={FullPost} /> */}
