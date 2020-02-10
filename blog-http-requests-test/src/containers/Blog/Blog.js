@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 //import axios from 'axios';
 import Posts from './Posts/Posts';
-import NewPost from './NewPost/NewPost';
+//import NewPost from './NewPost/NewPost';
+import asyncNewPost from '../../hoc/asyncComponent';
 
 import './Blog.css';
 
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 
+//Whatever goes between parenthesis of import () will be executed when the function is executed.
+const AsyncNewPost = asyncNewPost(() => {
+    return import('./NewPost/NewPost');
+});
+
 class Blog extends Component {
 
     state = {
-        auth: false
+        auth: true
     }
 
     render () {
@@ -44,7 +50,7 @@ class Blog extends Component {
                     {/* Swich is important if you want to make sure only one route is loaded */}
                     <Switch>
                         {/* This is a guard with redirect at the bottom and auth in state! */}
-                        {this.state.auth ? <Route path="/new-post" component={NewPost} /> : null}
+                        {this.state.auth ? <Route path="/new-post" component={AsyncNewPost} /> : null}
                         <Route path="/posts" component={Posts} />
                         {/* Catch all route below: */}
                         <Route render={() => <h1>Not found</h1>}/>
