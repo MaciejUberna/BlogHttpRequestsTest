@@ -5,7 +5,7 @@ import NewPost from './NewPost/NewPost';
 
 import './Blog.css';
 
-import { Route, NavLink, Switch } from 'react-router-dom';
+import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 
 class Blog extends Component {
 
@@ -41,6 +41,8 @@ class Blog extends Component {
                     <Switch>
                         <Route path="/new-post" component={NewPost} />
                         <Route path="/posts" component={Posts} />
+                        {/* <Route path="/" component={Poasts} /> */}
+                        <Redirect from="/" to="/posts" />
                         {/* This below must be last so it does not interfear with /new-post url.*/}
                         {/* The id can be anything */}
                         {/* <Route path="/:id" exact component={FullPost} /> */}
