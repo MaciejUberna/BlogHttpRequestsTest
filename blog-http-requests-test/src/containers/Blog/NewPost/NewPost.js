@@ -13,6 +13,7 @@ class NewPost extends Component {
     }
 
     componentDidMount () {
+        //Here you can also implement guards
         console.log('Props NewPost in didMount: ',this.props);
     }
 

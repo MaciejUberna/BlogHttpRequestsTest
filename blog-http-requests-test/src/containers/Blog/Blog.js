@@ -9,6 +9,10 @@ import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 
 class Blog extends Component {
 
+    state = {
+        auth: false
+    }
+
     render () {
         //console.log(this.state)
         return (
@@ -39,7 +43,8 @@ class Blog extends Component {
                     </header>
                     {/* Swich is important if you want to make sure only one route is loaded */}
                     <Switch>
-                        <Route path="/new-post" component={NewPost} />
+                        {/* This is a guard with redirect at the bottom and auth in state! */}
+                        {this.state.auth ? <Route path="/new-post" component={NewPost} /> : null}
                         <Route path="/posts" component={Posts} />
                         {/* <Route path="/" component={Poasts} /> */}
                         <Redirect from="/" to="/posts" />
