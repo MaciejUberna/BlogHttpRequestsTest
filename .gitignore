@@ -1,6 +1,6 @@
 # Don't track content of these folders
 /blog-http-requests-test/node_modules/
-
+/routing--react-suspense-start/node_modules/
 
 # Compiled source #
 ###################
