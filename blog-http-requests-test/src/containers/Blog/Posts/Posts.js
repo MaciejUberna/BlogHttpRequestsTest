@@ -36,8 +36,8 @@ class Posts extends Component {
 
     postSelectedHandler = (id) => {
         // "pathname" is the encoded param. 
-        this.props.history.push({pathname: '/posts/' + id});
-        // this.props.history.push({'/posts/' + id});
+        //this.props.history.push({pathname: '/posts/' + id});
+        this.props.history.push('/posts/' + id);
     }
 
     render () {
