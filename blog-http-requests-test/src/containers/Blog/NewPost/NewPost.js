@@ -22,10 +22,16 @@ class NewPost extends Component {
             body: this.state.content,
             author: this.state.author
         };
-        axios.post('https://jsonplaceholder.typicode.com/posts',post)
+        axios.post('/posts',post)
             .then(response => {
-                console.log("Post response: ",response);
-                this.setState({submitted: true});
+                console.log("NewPost.js Post response: ",response);
+                // with this command you can go back to the previous page by clicking browser back button
+                this.props.history.push('/posts');
+
+                //With routing you wont go back with browser back button
+                //this.setState({submitted: true});
+                //the same with this command:
+                // this.props.history.replace('/posts')
             });
     };
 
