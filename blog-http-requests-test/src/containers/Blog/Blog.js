@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 //import axios from 'axios';
 import Posts from './Posts/Posts';
 import NewPost from './NewPost/NewPost';
-import FullPost from './FullPost/FullPost';
 
 import './Blog.css';
 
@@ -19,7 +18,7 @@ class Blog extends Component {
                             <ul>
                                 {console.log('Props of Blog.js: ', this.props)}
                                 <li><NavLink 
-                                    to="/" 
+                                    to="/posts/" 
                                     exact
                                     activeClassName="my-active"
                                     activeStyle={{
@@ -39,12 +38,12 @@ class Blog extends Component {
                         </nav>
                     </header>
                     {/* Swich is important if you want to make sure only one route is loaded */}
-                    <Route path="/" exact component={Posts} />
                     <Switch>
                         <Route path="/new-post" component={NewPost} />
+                        <Route path="/posts" component={Posts} />
                         {/* This below must be last so it does not interfear with /new-post url.*/}
                         {/* The id can be anything */}
-                        <Route path="/:id" exact component={FullPost} />
+                        {/* <Route path="/:id" exact component={FullPost} /> */}
                     </Switch>
                 </div>
             );
