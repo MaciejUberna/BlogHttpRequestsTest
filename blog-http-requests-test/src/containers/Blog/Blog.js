@@ -6,7 +6,7 @@ import asyncNewPost from '../../hoc/asyncComponent';
 
 import './Blog.css';
 
-import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
+import { Route, NavLink, Switch } from 'react-router-dom';
 
 //Whatever goes between parenthesis of import () will be executed when the function is executed.
 const AsyncNewPost = asyncNewPost(() => {
