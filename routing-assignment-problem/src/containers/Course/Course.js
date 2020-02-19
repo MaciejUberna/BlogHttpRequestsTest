@@ -10,9 +10,8 @@ class Course extends Component {
     }
 
     componentDidMount() {
-        //console.log('this.props.location.search: ',this.props.location.search);
+        //console.log('this.props.match.params.id: ',this.props.match.params.id);
         const queries = queryString.parse(this.props.location.search);
-        //console.log('queries: ',queries.title);
         this.setState(
             {id: this.props.match.params.id,
             title: queries.title}

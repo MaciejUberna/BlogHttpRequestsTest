@@ -3,7 +3,6 @@ import {BrowserRouter, Route, Switch, NavLink} from 'react-router-dom';
 import classes from './App.module.css'
 
 import Courses from './containers/Courses/Courses';
-import Course from './containers/Course/Course';
 import Users from './containers/Users/Users';
 
 class App extends Component {
@@ -19,7 +18,7 @@ class App extends Component {
         <Switch>
           <Route path="/courses" exact component={Courses} />
           <Route path="/users" component={Users} />
-          <Route path="/courses/:id" exact component={Course} />
+          <Route path="/courses/:id" exact component={Courses} />
         </Switch>
         <div className="App">
           <ol style={{textAlign: 'left'}}>
