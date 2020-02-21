@@ -35,9 +35,9 @@ class App extends Component {
         null
       }
         <Switch>
-          <Route path="/courses" exact render={ () => <Courses onLoad={this.showNon404Handler} /> } />
-          <Route path="/users" exact render={ () => <Users onLoad={this.showNon404Handler } />} />
-          <Route path="/courses/:id" exact render={ (props) => <Courses onLoad={this.showNon404Handler} {...props} />} />
+          <Route path="/courses" exact component={ () => <Courses onLoad={this.showNon404Handler} /> } />
+          <Route path="/users" exact component={ () => <Users onLoad={this.showNon404Handler } />} />
+          <Route path="/courses/:id" exact component={ (props) => <Courses onLoad={this.showNon404Handler} {...props} />} />
           <Redirect from="/all-courses" to="/courses" />
           <Redirect from="" to="/courses" />
           <Route render={() => (<img src={Logo} onLoad={this.hideNon404Handler} width='50%' height='50%' alt='Error 404, Page not found...'/>)} />
