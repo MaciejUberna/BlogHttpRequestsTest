@@ -1,25 +1,48 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Route, Switch, NavLink} from 'react-router-dom';
+import {BrowserRouter, Route, Switch, NavLink, Redirect} from 'react-router-dom';
 import classes from './App.module.css'
+import Logo from './img/system/404.jpg';
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
 
 class App extends Component {
+
+  state = {
+    is404: false
+  }
+
+  hideNon404Handler = () => {
+    this.setState({is404: true});
+  }
+
+  showNon404Handler = () => {
+    this.setState({is404: false});
+  }
+
   render () {
     return (
       <BrowserRouter>
-      <div className={classes.Links}>
-        <ul>
-            <li> <NavLink activeClassName={classes.active} to="/users" exact>Users</NavLink> </li>
-            <li> <NavLink activeClassName={classes.active} to="/courses" exact>Courses</NavLink> </li>
-        </ul>
-      </div>
+      {!this.state.is404
+      ?
+        <div className={classes.Links}>
+          <ul>
+              <li> <NavLink activeClassName={classes.active} to="/users" exact>Users</NavLink> </li>
+              <li> <NavLink activeClassName={classes.active} to="/courses" exact>Courses</NavLink> </li>
+          </ul>
+        </div>
+      :
+        null
+      }
         <Switch>
-          <Route path="/courses" exact component={Courses} />
-          <Route path="/users" component={Users} />
-          <Route path="/courses/:id" exact component={Courses} />
+          <Route path="/courses" exact render={ () => <Courses onLoad={this.showNon404Handler} /> } />
+          <Route path="/users" exact render={ () => <Users onLoad={this.showNon404Handler } />} />
+          <Route path="/courses/:id" exact render={ (props) => <Courses onLoad={this.showNon404Handler} {...props} />} />
+          <Redirect from="/all-courses" to="/courses" />
+          <Route render={() => (<img src={Logo} onLoad={this.hideNon404Handler} width='50%' height='50%' alt='Error 404, Page not found...'/>)} />
         </Switch>
+      {!this.state.is404
+      ?
         <div className="App">
           <ol style={{textAlign: 'left'}}>
             <li>Add Routes to load "Users" and "Courses" on different pages (by entering a URL, without Links)</li>
@@ -32,6 +55,9 @@ class App extends Component {
             <li>Redirect requests to /all-courses to /courses (=> Your "Courses" page)</li>
           </ol>
         </div>
+      :
+        null
+      }
       </BrowserRouter>
     );
   }
