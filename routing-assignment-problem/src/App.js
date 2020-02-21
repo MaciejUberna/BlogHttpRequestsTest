@@ -39,6 +39,7 @@ class App extends Component {
           <Route path="/users" exact render={ () => <Users onLoad={this.showNon404Handler } />} />
           <Route path="/courses/:id" exact render={ (props) => <Courses onLoad={this.showNon404Handler} {...props} />} />
           <Redirect from="/all-courses" to="/courses" />
+          <Redirect from="" to="/courses" />
           <Route render={() => (<img src={Logo} onLoad={this.hideNon404Handler} width='50%' height='50%' alt='Error 404, Page not found...'/>)} />
         </Switch>
       {!this.state.is404
