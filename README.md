@@ -5,6 +5,14 @@
 
 Folder containing the project is: blog-http-requests-test
 
+or
+
+routing--react-suspense-start
+
+or
+
+routing-assignment-problem
+
 ## Introduction
 
 HttpRequests test app
@@ -15,8 +23,14 @@ The purpose of this app is thes ajac/http requests
 
 ## Deployment
 
-This is a simple web project, it's not on setver it uses mocaps instead.
+Install node.js on your machine
+Go to one of 3 projects' folders and type (without quotes):
+"npm install"
 
+then:
+"npm run start"
+
+The web app should then appear on your default browser.
 ## How to contribute
 
 No contribution needed.
