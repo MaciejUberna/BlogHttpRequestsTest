@@ -1,9 +1,17 @@
 # BlogHttpRequestsTest
  Simple Blogger page that tests Ajax/Http requests
+ in "blog-http-requests-test",
+ and also praktice routing in:
+ "routing--react-suspense-start"
+ and
+ "routing-assignment-problem"
+ Folder projects.
 
 # Starter Web Project
 
-Folder containing the project is: blog-http-requests-test
+Folder containing the project is: 
+
+blog-http-requests-test
 
 or
 
