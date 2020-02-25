@@ -27,20 +27,19 @@ class App extends Component {
       ?
         <div className={classes.Links}>
           <ul>
-              <li> <NavLink activeClassName={classes.active} to="/users" exact>Users</NavLink> </li>
-              <li> <NavLink activeClassName={classes.active} to="/courses" exact>Courses</NavLink> </li>
+              <li> <NavLink activeClassName={classes.active} to="/users" >Users</NavLink> </li>
+              <li> <NavLink activeClassName={classes.active} to="/courses" >Courses</NavLink> </li>
           </ul>
         </div>
       :
         null
       }
         <Switch>
+          <Route path="/courses/:id" exact component={ (props) => <Courses onLoad={this.showNon404Handler} {...props} />} />
           <Route path="/courses" exact component={ () => <Courses onLoad={this.showNon404Handler} /> } />
           <Route path="/users" exact component={ () => <Users onLoad={this.showNon404Handler } />} />
-          <Route path="/courses/:id" exact component={ (props) => <Courses onLoad={this.showNon404Handler} {...props} />} />
           <Redirect from="/all-courses" to="/courses" />
-          <Redirect from="" to="/courses" />
-          <Route render={() => (<img src={Logo} onLoad={this.hideNon404Handler} width='50%' height='50%' alt='Error 404, Page not found...'/>)} />
+          <Route component={() => (<img src={Logo} onLoad={this.hideNon404Handler} width='50%' height='50%' alt='Error 404, Page not found...'/>)} />
         </Switch>
       {!this.state.is404
       ?

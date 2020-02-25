@@ -10,6 +10,17 @@ class Course extends Component {
     }
 
     componentDidMount() {
+        this.loadStateHandler();
+    }
+
+    componentDidUpdate() {
+        if(this.props.match){
+            if(!this.state.id || this.state.id !== this.props.match.params.id)
+                this.loadStateHandler();
+        }
+    }
+
+    loadStateHandler = () => {
         const queries = queryString.parse(this.props.location.search);
         if (queries.title) {
             this.setState(

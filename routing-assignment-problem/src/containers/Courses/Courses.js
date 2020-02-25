@@ -20,24 +20,26 @@ class Courses extends Component {
                 <section className={classes.Courses}>
                     {
                         this.state.courses.map( course => {
-                            return <article
-                                className={classes.Course} 
-                                key={course.id}>
-                                {
+                            return (
                                     <NavLink 
                                         activeClassName={classes.Link} 
                                         to={'/courses/'+course.id+'?title='+course.title}
+                                        key={course.id}
                                     >
-                                        {course.title}
+                                        <article
+                                            className={classes.Course}
+                                            key={course.id+'art'}
+                                        >
+                                            {course.title}
+                                        </article>
                                     </NavLink> 
-                                }
-                            </article>;
+                            );
                         } )
                     }
                 </section>
                 <section>
                     <Suspense fallback={<div>Loading...</div>}> 
-                        <Route path="/courses/:id" component={(props) => <Course {...props}/>} /> 
+                        <Route path="/courses/:id" component={Course} /> 
                     </Suspense>
                 </section>
             </div>
